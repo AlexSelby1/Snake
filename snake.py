@@ -15,11 +15,19 @@ class Snake:
     def create(self):
         """Create snake in middle of the screen joining 3 segments"""
         for position in STARTING_POSITIONS:
+            self.add_segment(position)
+            
+    def add_segment(self,position):
             snake_body = Turtle(shape="square")
             snake_body.pu()
             snake_body.color("white")
             snake_body.goto(position)
             self.segments.append(snake_body)
+            
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
+        
+        
     
     def move(self):
         """Function to link snake segments and move snake forward 20 paces"""
