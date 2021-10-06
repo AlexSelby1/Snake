@@ -27,8 +27,6 @@ class Snake:
     def extend(self):
         self.add_segment(self.segments[-1].position())
         
-        
-    
     def move(self):
         """Function to link snake segments and move snake forward 20 paces"""
         for seg in range(len(self.segments) - 1, 0, -1):
@@ -38,7 +36,6 @@ class Snake:
                         
         self.head.fd(MOVE_DISTANCE)
                 
-    
     def move_up(self):
         """Snake can move up if not going down"""
         if self.head.heading()!= DOWN:
