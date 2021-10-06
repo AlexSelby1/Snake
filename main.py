@@ -3,26 +3,37 @@ from snake import Snake
 from food import Food
 import time
 
+score = 0
+# Create suitable screen for game
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake")
 screen.tracer(0)
 
+# Creating classes
 snake = Snake()
 food = Food()
 
+# Listen out for key presses to move snake
 screen.listen()
 screen.onkey(key="Up", fun=snake.move_up)
 screen.onkey(key="Down", fun=snake.move_down)
 screen.onkey(key="Left", fun=snake.move_left)
 screen.onkey(key="Right", fun=snake.move_right)
 
+# Keep snake moving while the game is on
 game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(0.1)
-    
     snake.move()
+    
+    # Detect collision with food with distance method
+    if snake.head.distance(food) < 15:
+        score+=1
+        print(score)
+        food.refresh()
+
 
 screen.exitonclick()
