@@ -4,7 +4,6 @@ from food import Food
 from scoreboard import Scoreboard
 import time
 
-score = 0
 # Create suitable screen for game
 screen = Screen()
 screen.setup(width=600, height=600)
